@@ -1,0 +1,12 @@
+.task-column {
+    width: 200px;
+    float: left; 
+    margin-right: 1em;
+}
+
+.issue {
+    background-color: lightyellow;
+    padding: 1em;
+    font-size: 1.2em;
+    font-family: 'The Girl Next Door', cursive;
+}

@@ -1,0 +1,38 @@
+<% content_for :header_tags do %>
+    <link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door&amp;v2' rel='stylesheet' type='text/css'>    
+    <%= stylesheet_link_tag 'task_board.css', :plugin => 'redmine_task_board' %>
+<% end %>
+
+<h2><%= @version.name %></h2>
+
+<div id="task-columns">
+    <div class="task-column">
+        <h3>Unstarted</h3>
+        <% @issues.each do |issue| %>
+            <div class="issue">
+                #<%= issue.id %> - 
+                <%= issue.subject %>
+            </div>
+        <% end %>
+    </div>
+
+    <div class="task-column">
+        <h3>In progress</h3>
+        <% @issues.each do |issue| %>
+            <div class="issue">
+                #<%= issue.id %> - 
+                <%= issue.subject %>
+            </div>
+        <% end %>
+    </div>
+
+    <div class="task-column">
+        <h3>QA</h3>
+        <% @issues.each do |issue| %>
+            <div class="issue">
+                #<%= issue.id %> - 
+                <%= issue.subject %>
+            </div>
+        <% end %>
+    </div>
+</div>
