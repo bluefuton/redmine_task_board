@@ -1,38 +1,13 @@
 <% content_for :header_tags do %>
-    <link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door&amp;v2' rel='stylesheet' type='text/css'>    
+    <link href='http://fonts.googleapis.com/css?family=Sue+Ellen+Francisco&amp;v2' rel='stylesheet'     type='text/css'>    
     <%= stylesheet_link_tag 'task_board.css', :plugin => 'redmine_task_board' %>
 <% end %>
 
-<h2><%= @version.name %></h2>
+<h2><%= link_to @version.project.name, '/task_boards/index?project_id=' + @project.id.to_s %> &rarr; <%= @version.name %></h2>
 
 <div id="task-columns">
-    <div class="task-column">
-        <h3>Unstarted</h3>
-        <% @issues.each do |issue| %>
-            <div class="issue">
-                #<%= issue.id %> - 
-                <%= issue.subject %>
-            </div>
-        <% end %>
-    </div>
-
-    <div class="task-column">
-        <h3>In progress</h3>
-        <% @issues.each do |issue| %>
-            <div class="issue">
-                #<%= issue.id %> - 
-                <%= issue.subject %>
-            </div>
-        <% end %>
-    </div>
-
-    <div class="task-column">
-        <h3>QA</h3>
-        <% @issues.each do |issue| %>
-            <div class="issue">
-                #<%= issue.id %> - 
-                <%= issue.subject %>
-            </div>
-        <% end %>
-    </div>
+    <%= render :partial => 'task_column', :locals => {:title => 'To do', :issues => @issues_to_do} %>
+    <%= render :partial => 'task_column', :locals => {:title => 'In progress', :issues => @issues_in_progress} %>
+    <%= render :partial => 'task_column', :locals => {:title => 'QA', :issues => @issues_to_verify} %>
+    <%= render :partial => 'task_column', :locals => {:title => 'Closed', :issues => @issues_closed} %>
 </div>
