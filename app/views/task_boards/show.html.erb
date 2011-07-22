@@ -3,7 +3,7 @@
     <%= stylesheet_link_tag 'task_board.css', :plugin => 'redmine_task_board' %>
 <% end %>
 
-<h2><%= link_to @version.project.name, '/task_boards/index?project_id=' + @project.id.to_s %> &rarr; <%= @version.name %></h2>
+<h2><%= link_to @version.project.name, '/task_boards/index?project_identifier=' + @project.identifier.to_s %> &rarr; <%= @version.name %></h2>
 
 <div id="task-columns">
     <%= render :partial => 'task_column', :locals => {:title => 'To do', :issues => @issues_to_do} %>

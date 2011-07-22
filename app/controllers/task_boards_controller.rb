@@ -1,8 +1,9 @@
 class TaskBoardsController < ApplicationController
   unloadable
+  
+  before_filter :find_project, :authorize
 
   def index
-    @project = Project.find(params[:project_id])
   end
   
   def show
@@ -14,4 +15,10 @@ class TaskBoardsController < ApplicationController
     @issues_to_verify = Issue.find_by_version_id_and_status_names(@version.id, ['Resolved'])
     @issues_closed = Issue.find_by_version_id_and_status_names(@version.id, ['Closed'])
   end
+  
+  protected
+  def find_project
+    # @project variable must be set before calling the authorize filter
+    @project = Project.find_by_identifier(params[:project_identifier])
+  end  
 end

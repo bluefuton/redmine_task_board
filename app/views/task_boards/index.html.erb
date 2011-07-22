@@ -2,6 +2,6 @@
 
 <ul id="version-choice">
 <% @project.versions.each do |version| %>
-    <li><%= link_to version.name, '/task_boards/show/' + version.id.to_s %></li>
+    <li><%= link_to version.name, '/task_boards/show/' + version.id.to_s + '?project_identifier=' + version.project.identifier.to_s %></li>
 <% end %>
 </ul>
