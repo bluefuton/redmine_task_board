@@ -5,8 +5,22 @@
 }
 
 .issue {
-    background-color: lightyellow;
+    background-color: #ffa;
     padding: 1em;
-    font-size: 2em;
-    font-family: 'Sue Ellen Francisco', cursive;
+    font-size: 1.2em;
+    font-family: 'Coming Soon', cursive;
+    border: 0;
+    -webkit-transform: rotate(-1deg);
+    -moz-transform: rotate(-1deg);
+    -o-transform: rotate(-1deg);
+    transform: rotate(-1deg);
+}
+
+.issue a {
+    color: #222;
+}
+
+.issue a:hover {
+    text-decoration: none;
+    color: #e7005c;
 }
