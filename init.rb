@@ -1,5 +1,8 @@
 require 'redmine'
 
+# Patches to the Redmine core.  Will not work in development mode
+require_dependency 'issue_patch'
+
 Redmine::Plugin.register :redmine_task_board do
   name 'Redmine Task Board plugin'
   author 'Chris Rosser'
