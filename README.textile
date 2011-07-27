@@ -1,8 +1,6 @@
 h1. Redmine task board
 
-A simple task board for Redmine. 
-
-It's very basic at the moment, but perfectly usable.
+A simple task board for Redmine 1.2+.
 
 h2. Usage 
 
