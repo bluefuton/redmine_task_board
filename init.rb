@@ -8,9 +8,9 @@ Redmine::Plugin.register :redmine_task_board do
   author 'Chris Rosser'
   description 'Provide a task board for a version'
   version '0.0.1'
-  url 'http://example.com/path/to/plugin'
-  author_url 'http://example.com/about'
   
+  menu :project_menu, :task_boards, { :controller => 'task_boards', :action => 'index' }, :caption => 'Task board', :after => :activity, :param => :project_identifier
+
   project_module :task_board do
     permission :view_task_board, :task_boards => [:index, :show]
   end
