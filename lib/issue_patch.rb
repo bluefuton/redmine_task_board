@@ -16,4 +16,8 @@ module IssuePatch
 end
 
 # Add module to Issue
-Issue.send(:include, IssuePatch)
+Dispatcher.to_prepare do  
+    unless  Issue.included_modules.include?(IssuePatch)
+       Issue.send(:include, IssuePatch)
+    end
+end
