@@ -1,11 +1,8 @@
-<div class="task-column">
-    <h3><%= title %></h3>
-    <% issues.each do |issue| %>
-        <div class="issue">
-            <a href="/issues/<%= issue.id %>">
-            #<%= issue.id %> - 
+<% issues.each do |issue| %>
+    <% if (issue_category.nil? and issue.category_id.nil?) or (!issue_category.nil? and issue.category_id == issue_category.id) %>
+        <a class="issue" href="/issues/<%= issue.id %>">
+            <small>#<%= issue.id %> - <%= issue.priority %> - Assigned to <%= (!issue.assigned_to.nil?) ? issue.assigned_to : 'nobody' %></small><br />
             <%= issue.subject %>
-            </a>
-        </div>
+        </a>
     <% end %>
-</div>
+<% end %>

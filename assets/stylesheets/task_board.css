@@ -1,26 +1,39 @@
-.task-column {
-    width: 24%;
-    float: left; 
-    margin-right: 1em;
+.redmine_task_board table {
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
-.issue {
+.redmine_task_board table th {
+    padding: 5px;
+}
+
+.redmine_task_board table tr th,
+.redmine_task_board table tr td {
+    border-bottom: solid 1px #CCC;
+}
+
+.redmine_task_board tbody tr:nth-child(odd) {
+    background: #F5F5F5;
+}
+
+.redmine_task_board tbody td {
+    width: 25%;
+}
+
+.redmine_task_board .issue {
+    display: block;
     background-color: #ffa;
-    padding: 1em;
-    font-size: 1.2em;
-    font-family: 'Coming Soon', cursive;
-    border: 0;
-    -webkit-transform: rotate(-1deg);
-    -moz-transform: rotate(-1deg);
-    -o-transform: rotate(-1deg);
-    transform: rotate(-1deg);
-}
-
-.issue a {
     color: #222;
+    padding: 5px;
+    font-size: 1.2em;
+    font-family: 'Coming Soon', sans-serif;
+    border: 0;
+    margin: 5px;
+    border: 1px solid #D7D7D7;
 }
 
-.issue a:hover {
+.redmine_task_board .issue:hover {
     text-decoration: none;
     color: #e7005c;
 }

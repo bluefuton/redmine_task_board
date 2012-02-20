@@ -3,11 +3,39 @@
     <%= stylesheet_link_tag 'task_board.css', :plugin => 'redmine_task_board' %>
 <% end %>
 
-<h2><%= link_to @version.project.name, '/task_boards/index?project_identifier=' + @project.identifier.to_s %> &rarr; <%= @version.name %></h2>
+<div class="redmine_task_board">
+    <h2><%= link_to @version.project.name, '/task_boards/index?project_identifier=' + @project.identifier.to_s %> &rarr; <%= @version.name %></h2>
 
-<div id="task-columns">
-    <%= render :partial => 'task_column', :locals => {:title => 'To do', :issues => @issues_to_do} %>
-    <%= render :partial => 'task_column', :locals => {:title => 'In progress', :issues => @issues_in_progress} %>
-    <%= render :partial => 'task_column', :locals => {:title => 'QA', :issues => @issues_to_verify} %>
-    <%= render :partial => 'task_column', :locals => {:title => 'Closed', :issues => @issues_closed} %>
+    <table border="0" cellpadding="0" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>To do</th>
+                <th>In progress</th>
+                <th>In QA</th>
+                <th>Closed</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th valign="top">Uncategorised</th>
+                <td valign="top"><%= render :partial => 'task_column', :locals => {:issue_category => nil, :issues => @issues_to_do} %></td>
+                <td valign="top"><%= render :partial => 'task_column', :locals => {:issue_category => nil, :issues => @issues_in_progress} %></td>
+                <td valign="top"><%= render :partial => 'task_column', :locals => {:issue_category => nil, :issues => @issues_to_verify} %></td>
+                <td valign="top"><%= render :partial => 'task_column', :locals => {:issue_category => nil, :issues => @issues_closed} %></td>
+            </tr>
+
+            <% if !@issue_categories.nil? %>
+                <% @issue_categories.each do |issue_category| %>
+                    <tr>
+                        <th valign="top"><%= issue_category.name %></th>
+                        <td valign="top"><%= render :partial => 'task_column', :locals => {:issue_category => issue_category, :issues => @issues_to_do} %></td>
+                        <td valign="top"><%= render :partial => 'task_column', :locals => {:issue_category => issue_category, :issues => @issues_in_progress} %></td>
+                        <td valign="top"><%= render :partial => 'task_column', :locals => {:issue_category => issue_category, :issues => @issues_to_verify} %></td>
+                        <td valign="top"><%= render :partial => 'task_column', :locals => {:issue_category => issue_category, :issues => @issues_closed} %></td>
+                    </tr>
+                <% end %>
+            <% end %>
+        </tbody>
+    </table>
 </div>
