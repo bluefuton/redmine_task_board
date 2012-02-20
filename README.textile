@@ -6,4 +6,4 @@ h2. Usage
 
 From the 'Task board' tab in your project, choose a version and then view your issues under the columns 'New', 'In progress', 'QA' and 'Complete'.
 
-!https://github.com/bluefuton/redmine-task-board/raw/master/screenshot.jpg!
+!https://github.com/bluefuton/redmine_task_board/raw/master/screenshot.jpg!
