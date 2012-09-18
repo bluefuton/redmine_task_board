@@ -1,7 +1,7 @@
 .task-column {
-    width: 24%;
+    width: 23%;
     float: left; 
-    margin-right: 1em;
+    padding-right: 1em;
 }
 
 .issue {
